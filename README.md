@@ -1,3 +1,3 @@
-# 6.-Analysis-of-relations
+# Analysis of relations
 
 ### Our description
