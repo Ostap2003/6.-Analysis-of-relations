@@ -135,13 +135,15 @@ def count_transitive_containing(n: int, prefix: List[bool]):
     3994
     """
 
+    is_transitive = check_transitive(prefix, n)
+
     # first base case
-    if not check_transitive(prefix, n):
+    if not is_transitive:
         return 0
 
     # second base case
     if n**2 == len(prefix):
-        if check_transitive(prefix, n):
+        if is_transitive:
             return 1
         return 0
 
