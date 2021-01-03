@@ -102,6 +102,8 @@ def count_transitive_containing(n: int, prefix: List[bool]):
     Recursively calculate and return number of transitive relations on a set of n elements, whose
     matrices contain the given prefix in the beginning.
 
+    Precondition: prefix[:-1] doesn't ruin the transitivity of matrix.
+
     Examples:
 
     # The following examples will count all transitive relations on a set of 2 elements,
@@ -176,7 +178,7 @@ def check_transitive(prefix: List[bool], n: int) -> bool:
                     return False
             return True
         else:
-            # now we know that matrix[last_index] is equal to True
+            # now we know that prefix[last_index] is equal to True
             for i in range(num_row*n, min((num_row+1)*n, len(prefix))):
                 if prefix[i] == True:
                     continue
