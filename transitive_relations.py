@@ -40,53 +40,6 @@ def compare(lst1: list, lst2: list) -> list:
     return compared
 
 
-def write_matrix_to_file(rel: list) -> None:
-    """
-    Recieves the matrix, passes it to warshall_alg func
-    to get trasitive relation, then writes transitive relation
-    to a .csv file as a matrix.
-
-    >>> write_matrix_to_file([[0, 1, 0], [0, 1, 1], [0, 0, 0]])
-
-
-    """
-    rel = warshall_alg(rel)
-    with open('transitive_matrix.csv', 'a', encoding='utf-8') as empt_fl:
-        for i in range(len(rel)):
-            line = ''
-            for j in range(len(rel[i])):
-                line += str(rel[i][j])
-            line = ','.join(line)
-            empt_fl.write(line)
-            empt_fl.write('\n')
-
-        empt_fl.write('\n')  # for empt line between the matrixes
-    
-    return None
-
-
-def write_rel_to_file(rel: list) -> None:
-    """
-    Recieves the matrix, passes it to warshall_alg func
-    to get transitive relation, then formats matrix into a
-    relation and writes it to a file.
-    
-    >>> write_rel_to_file([[0, 1, 0], [0, 1, 1], [0, 0, 0]])
-
-
-    """
-    rel = warshall_alg(rel)
-    with open('transitive_relation.txt', 'a', encoding='utf-8') as empt_fl:
-        for i in range(len(rel)):
-            for j in range(len(rel)):
-                if rel[i][j] == 1:
-                    rel_part = (i, j)
-                    empt_fl.write(str(rel_part))
-        empt_fl.write('\n')  # to start each relation in new line
-
-    return None
-
-
 def check_transition(rel: list) -> bool:
     """
     Recieves a relation and checks if it is a transitive one.
