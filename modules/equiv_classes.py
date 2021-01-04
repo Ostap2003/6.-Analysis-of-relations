@@ -28,7 +28,7 @@ def find_equiv_classes(relations):
     (3, 2), (3, 3)])
     [[0, 1], [2, 3]]
     """
-    classes_list = [{}]
+    classes_list = [set()]
     for relation in relations:
         for class_list in classes_list:
             if relation[0] in class_list:

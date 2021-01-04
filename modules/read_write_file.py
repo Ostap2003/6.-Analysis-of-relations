@@ -27,7 +27,7 @@ def write_matrix(matrix: list):
     """
     file = open("matrix.csv", "a", encoding='utf-8')
     for line in matrix:
-        file.write(str(line).replace(", ", " ")[1:][:-1])
+        file.write(str(line).replace(", ", ", ")[1:][:-1])
         file.write("\n")
     
     file.write('\n')

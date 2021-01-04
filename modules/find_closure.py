@@ -17,9 +17,9 @@ def find_symmetric_relation(matrix: list) -> list:
     [[0, 1, 1], [1, 0, 1], [1, 1, 1]]
     """
     for row in range(len(matrix)):
-        for num in range(len(matrix)):
-            if matrix[row][num] == 1 and matrix[num][row] != 1:
-                matrix[num][row] = 1  # if el (a, b) in matrix, add element (b, a)
-            elif matrix[row][num] != 1 and matrix[num][row] == 1:
-                matrix[row][num] = 1  # if el (b, a) in matrix, add element (a, b)
+        for column in range(len(matrix)):
+            if matrix[row][column] == 1 and matrix[column][row] != 1:
+                matrix[column][row] = 1  # if el (a, b) in matrix, add element (b, a)
+            elif matrix[row][column] != 1 and matrix[column][row] == 1:
+                matrix[row][column] = 1  # if el (b, a) in matrix, add element (a, b)
     return matrix
